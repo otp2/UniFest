@@ -1,0 +1,13 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/api/validate-code/route": "/api/validate-code",
+  "/api/webhooks/stripe/route": "/api/webhooks/stripe",
+  "/api/create-checkout/route": "/api/create-checkout",
+  "/[house]/page": "/[house]",
+  "/[house]/welcome/page": "/[house]/welcome",
+  "/admin/page": "/admin",
+  "/page": "/",
+  "/tickets/[promo_code]/page": "/tickets/[promo_code]",
+  "/success/page": "/success"
+}

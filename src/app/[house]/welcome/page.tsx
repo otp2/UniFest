@@ -1,12 +1,11 @@
 import { notFound } from 'next/navigation'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerSupabaseClient } from '@/lib/supabase'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 export default async function WelcomePage({ params }: { params: Promise<{ house: string }> }) {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = await createServerSupabaseClient()
   const { house: houseName } = await params
   
   const { data: house } = await supabase

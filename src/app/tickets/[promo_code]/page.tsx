@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerSupabaseClient } from '@/lib/supabase'
 import TicketPurchase from '@/components/TicketPurchase'
 
 export default async function TicketPurchasePage({ params }: { params: Promise<{ promo_code: string }> }) {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = await createServerSupabaseClient()
   const { promo_code } = await params
   
   const { data: house } = await supabase

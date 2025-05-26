@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation'
 import CodeEntry from '@/components/CodeEntry'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { cookies } from 'next/headers'
+import { createServerSupabaseClient } from '@/lib/supabase'
 
 export default async function HouseCodePage({ params }: { params: Promise<{ house: string }> }) {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = await createServerSupabaseClient()
   const { house: houseName } = await params
   
   const { data: house } = await supabase
