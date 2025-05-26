@@ -1,1 +1,6 @@
-{}
+{
+  "/[house]/page": "app/[house]/page.js",
+  "/api/validate-code/route": "app/api/validate-code/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
+}

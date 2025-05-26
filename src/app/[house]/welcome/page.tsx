@@ -4,6 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function WelcomePage({ params }: { params: Promise<{ house: string }> }) {
   const supabase = await createServerSupabaseClient()
   const { house: houseName } = await params

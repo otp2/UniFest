@@ -5,7 +5,15 @@ import { createServerSupabaseClient } from '@/lib/supabase'
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// Initialize Stripe only when needed
+function getStripe() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not set')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-04-30.basil',
+  })
+}
 
 export async function POST(request: Request) {
   try {
@@ -45,6 +53,7 @@ export async function POST(request: Request) {
     const price = pricingConfig.prices[priceKey]
 
     // Create Stripe session
+    const stripe = getStripe()
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [{

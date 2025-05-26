@@ -7,7 +7,15 @@ import QRCode from 'qrcode'
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+// Initialize Stripe only when needed
+function getStripe() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not set')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2025-04-30.basil',
+  })
+}
 
 export async function POST(request: Request) {
   const body = await request.text()
@@ -20,6 +28,7 @@ export async function POST(request: Request) {
 
   let event
   try {
+    const stripe = getStripe()
     event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!)
   } catch (err) {
     console.error('Webhook signature verification failed:', err)

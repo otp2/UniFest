@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation'
 import { createServerSupabaseClient } from '@/lib/supabase'
 import TicketPurchase from '@/components/TicketPurchase'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function TicketPurchasePage({ params }: { params: Promise<{ promo_code: string }> }) {
   const supabase = await createServerSupabaseClient()
   const { promo_code } = await params

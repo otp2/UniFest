@@ -2,6 +2,9 @@ import { notFound } from 'next/navigation'
 import CodeEntry from '@/components/CodeEntry'
 import { createServerSupabaseClient } from '@/lib/supabase'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export default async function HouseCodePage({ params }: { params: Promise<{ house: string }> }) {
   const supabase = await createServerSupabaseClient()
   const { house: houseName } = await params
