@@ -1,13 +1,1 @@
-{
-  "/_not-found/page": "/_not-found",
-  "/favicon.ico/route": "/favicon.ico",
-  "/api/validate-code/route": "/api/validate-code",
-  "/api/create-checkout/route": "/api/create-checkout",
-  "/api/webhooks/stripe/route": "/api/webhooks/stripe",
-  "/page": "/",
-  "/success/page": "/success",
-  "/[house]/page": "/[house]",
-  "/[house]/welcome/page": "/[house]/welcome",
-  "/tickets/[promo_code]/page": "/tickets/[promo_code]",
-  "/admin/page": "/admin"
-}
+{"/_not-found/page":"/_not-found","/favicon.ico/route":"/favicon.ico","/page":"/","/success/page":"/success","/[house]/welcome/page":"/[house]/welcome","/[house]/page":"/[house]","/api/validate-code/route":"/api/validate-code","/api/create-checkout/route":"/api/create-checkout","/api/webhooks/stripe/route":"/api/webhooks/stripe","/admin/page":"/admin","/tickets/[promo_code]/page":"/tickets/[promo_code]"}

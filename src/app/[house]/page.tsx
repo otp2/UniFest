@@ -5,9 +5,9 @@ import { createServerSupabaseClient } from '@/lib/supabase'
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 
-export default async function HouseCodePage({ params }: { params: Promise<{ house: string }> }) {
+export default async function HouseCodePage({ params }: { params: { house: string } }) {
   const supabase = await createServerSupabaseClient()
-  const { house: houseName } = await params
+  const { house: houseName } = params
   
   const { data: house } = await supabase
     .from('houses')

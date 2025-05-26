@@ -1,6 +1,13 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/success/page": "app/success/page.js",
+  "/[house]/welcome/page": "app/[house]/welcome/page.js",
   "/[house]/page": "app/[house]/page.js",
   "/api/validate-code/route": "app/api/validate-code/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/api/create-checkout/route": "app/api/create-checkout/route.js",
+  "/api/webhooks/stripe/route": "app/api/webhooks/stripe/route.js",
+  "/admin/page": "app/admin/page.js",
+  "/tickets/[promo_code]/page": "app/tickets/[promo_code]/page.js"
 }

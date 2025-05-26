@@ -3,28 +3,19 @@ import { createBrowserClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
 export function createClient() {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 
-                      'https://verbdhevzrtblphzbosr.supabase.co'
-  
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 
-                          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcmJkaGV2enJ0YmxwaHpib3NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyMDk1ODksImV4cCI6MjA2Mzc4NTU4OX0.JV7CXCMWNBYRKfARk3yoodHad5a5QTKi1lu_xCwNNHQ'
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Missing Supabase environment variables')
+    throw new Error('Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required')
   }
   
   return createBrowserClient(supabaseUrl, supabaseAnonKey)
 }
 
 export async function createServerSupabaseClient() {
-  // Try multiple ways to get the environment variables
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 
-                      process.env.SUPABASE_URL ||
-                      'https://verbdhevzrtblphzbosr.supabase.co'
-  
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 
-                          process.env.SUPABASE_ANON_KEY ||
-                          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcmJkaGV2enJ0YmxwaHpib3NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyMDk1ODksImV4cCI6MjA2Mzc4NTU4OX0.JV7CXCMWNBYRKfARk3yoodHad5a5QTKi1lu_xCwNNHQ'
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   
   if (!supabaseUrl || !supabaseAnonKey) {
     console.error('Environment variables debug:', {
@@ -33,7 +24,7 @@ export async function createServerSupabaseClient() {
       allEnvVars: Object.keys(process.env).filter(key => key.includes('SUPABASE')),
       nodeEnv: process.env.NODE_ENV
     })
-    throw new Error('Missing Supabase environment variables')
+    throw new Error('Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required')
   }
   
   const cookieStore = await cookies()

@@ -1,4 +1,1 @@
-{
-  "version": 1,
-  "functions": {}
-}
+{"version":1,"functions":{"/api/validate-code":{},"/api/webhooks/stripe":{},"/api/create-checkout":{},"/[house]":{},"/[house]/welcome":{},"/admin":{},"/tickets/[promo_code]":{}}}
